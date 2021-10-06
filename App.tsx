@@ -1,9 +1,9 @@
 import React from 'react';
-
-import { firebaseConfig } from './config';
 import firebase from 'firebase/app'
 import 'firebase/firestore';
-import Login from './src/screen/Login';
+
+import { firebaseConfig } from './config';
+import Router from './src/components/Routes'
 
 firebase.initializeApp(firebaseConfig);
 
@@ -27,6 +27,6 @@ export default function App() {
   // }, [])
 
   return (
-    <Login />
+    <Router />
   );
 }

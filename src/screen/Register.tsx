@@ -7,32 +7,44 @@ import {
     TouchableOpacity, 
     SafeAreaView,  
     Keyboard, 
-    TouchableWithoutFeedback, 
+    TouchableWithoutFeedback,
     Alert
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import firebase from 'firebase/app'
+import firebase from "firebase";
 import 'firebase/auth'
 
 import Colors from '../constants/Colors';
 import RoundedButton from '../components/RoundedButton';
 import { AuthNavProps } from "../params/AuthParamList";
-import { validateEmail, validatePassword } from "../util/AuthUtility";
+import { validateEmail, validatePassword } from '../util/AuthUtility';
 
-interface LoginProps extends AuthNavProps<"Login"> {
+interface RegisterProps extends AuthNavProps<"Register"> {
 
 }
 
-const Login: React.FC<LoginProps> = ({ navigation }) => {
+const Register: React.FC<RegisterProps> = ({ navigation }) => {
 
     const [email, setEmail] = useState<string | undefined>();
     const [password, setPassword] = useState<string | undefined>();
+    const [rePassword, setRePassword] = useState<string | undefined>();
 
-    const goToCreateAccount = () => {
-        navigation.navigate("Register")
+    const backToLogin = () => {
+        navigation.goBack()
     }
 
-    const signIn = () => {
+    const createAccount = () => {
+
+        if (password !== rePassword) {
+            Alert.alert(
+                "Password dosen't match!", 
+                "Password and Re-Password must match.", [
+                    {
+                        text: 'Ok',
+                    }
+            ])
+            return;   
+        }
 
         if (validatePassword(password || '')) {
             Alert.alert(
@@ -56,29 +68,29 @@ const Login: React.FC<LoginProps> = ({ navigation }) => {
             return;
         }
 
-        firebase.auth().signInWithEmailAndPassword(email as string, password as string)
+        firebase.auth().createUserWithEmailAndPassword(email as string, password as string)
             .then((userCredential) => {
-                const credentialUser = userCredential.user;
+                // Signed in 
+                backToLogin()
                 
             })
             .catch((error) => {
+                // const errorCode = error.code;
                 const errorMessage = error.message;
-
                 Alert.alert(
-                    "Sign In Failed!", 
+                    "Sign up error!", 
                     errorMessage, [
                         {
                             text: 'Ok',
                         }
                 ])
 
-            });
-
+             });
     }
 
     return (
         <LinearGradient 
-            colors={[Colors.darkGreen, 'black']}
+            colors={[Colors.darkRed, 'black']}
             style={styles.loginScreen} 
             end={{ x: 0.5, y: 0.75 }} > 
             <SafeAreaView style={styles.loginContainer}>
@@ -86,14 +98,15 @@ const Login: React.FC<LoginProps> = ({ navigation }) => {
                     <View style={styles.loginContainer}>
                         <View>
                             <View style={{...styles.alignCenterContainer, ...styles.marginContainer}} > 
-                                <Text style={styles.titleScreen}> Sign In</Text>
+                                <Text style={styles.titleScreen}> Sign Up</Text>
                             </View>
                             <View style={styles.alignCenterContainer} > 
                                 <TextInput 
                                     style={styles.inputs} 
                                     placeholder="Email" 
                                     placeholderTextColor="white" 
-                                    value={email} 
+                                    value={email}
+                                    keyboardType="email-address"
                                     onChangeText={setEmail} />
                                 <TextInput 
                                     style={styles.inputs} 
@@ -102,21 +115,22 @@ const Login: React.FC<LoginProps> = ({ navigation }) => {
                                     value={password}
                                     secureTextEntry={true} 
                                     onChangeText={setPassword} /> 
+                                <TextInput 
+                                    style={styles.inputs} 
+                                    placeholder="Re-Password" 
+                                    placeholderTextColor="white" 
+                                    value={rePassword}
+                                    secureTextEntry={true} 
+                                    onChangeText={setRePassword} /> 
                             </View>
                             <View style={{...styles.alignCenterContainer, ...styles.marginContainer}} >
-                                <RoundedButton title="Sign In" />
-                            </View>
-                            <View style={{...styles.alignCenterContainer, ...styles.marginContainer}}>
-                                <TouchableOpacity> 
-                                    <Text style={styles .forgotPasswordText}>Forgot your login or password?</Text>
-                                </TouchableOpacity>
+                                <RoundedButton title="Sign Up" onPress={createAccount} />
                             </View>
                         </View>
                         <View style={{...styles.alignCenterContainer}}>
-                            <TouchableOpacity 
-                                style={{...styles.alignCenterContainer, ...styles.marginContainer, ...styles.createAccountButton}}
-                                onPress={goToCreateAccount}> 
-                                <Text style={{...styles.forgotPasswordText, ...styles.createAccountText}}>Create account</Text>
+                            <TouchableOpacity style={{...styles.alignCenterContainer, ...styles.marginContainer, ...styles.createAccountButton}} 
+                                onPress={backToLogin}> 
+                                <Text style={{...styles.forgotPasswordText, ...styles.createAccountText}}>Go to Login</Text>
                             </TouchableOpacity>
                         </View>
                     </View> 
@@ -173,4 +187,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default Login;
+export default Register;
