@@ -1,5 +1,14 @@
 import React, { useState } from "react";
-import { StyleSheet, TextInput, View, Text, TouchableOpacity, SafeAreaView, KeyboardAvoidingView, Keyboard, TouchableWithoutFeedback, Platform } from 'react-native';
+import { 
+    StyleSheet, 
+    TextInput, 
+    View, 
+    Text, 
+    TouchableOpacity, 
+    SafeAreaView,  
+    Keyboard, 
+    TouchableWithoutFeedback 
+} from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 import Colors from '../constants/Colors';
@@ -20,42 +29,43 @@ const Login: React.FC<LoginProps> = ({}) => {
             style={styles.loginScreen} 
             end={{ x: 0.5, y: 0.75 }} > 
             <SafeAreaView style={styles.loginContainer}>
-                <View>
-                    <View style={{...styles.alignCenterContainer, ...styles.marginContainer}} > 
-                        <Text style={styles.titleScreen}> Sign in</Text>
-                    </View>
-                    <View style={styles.alignCenterContainer} > 
-                        <TextInput 
-                            style={styles.inputs} 
-                            placeholder="Email" 
-                            placeholderTextColor="white" 
-                            value={email} 
-                            onChangeText={setEmail} />
-                        <TextInput 
-                            style={styles.inputs} 
-                            placeholder="Password" 
-                            placeholderTextColor="white" 
-                            value={password} 
-                            onChangeText={setPassword}/> 
-                    </View>
-                    
-                    <View style={{...styles.alignCenterContainer, ...styles.marginContainer}} >
-                        <RoundedButton title="Sign In" />
-                    </View>
-
-                    <View style={{...styles.alignCenterContainer, ...styles.marginContainer}}>
-                        <TouchableOpacity> 
-                            <Text style={styles .forgotPasswordText}>Forgot your login or password?</Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
-                <View style={{...styles.alignCenterContainer}}>
-                    <TouchableOpacity style={{...styles.alignCenterContainer, ...styles.marginContainer, ...styles.createAccountButton}}> 
-                        <Text style={{...styles.forgotPasswordText, ...styles.createAccountText}}>Create account</Text>
-                    </TouchableOpacity>
-                    <Text style={{...styles.forgotPasswordText, ...styles.bottomContainer}}>{"Free for 3 months, then $12 a month"}</Text>
-                </View>
-
+                <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+                    <View style={styles.loginContainer}>
+                        <View>
+                            <View style={{...styles.alignCenterContainer, ...styles.marginContainer}} > 
+                                <Text style={styles.titleScreen}> Sign in</Text>
+                            </View>
+                            <View style={styles.alignCenterContainer} > 
+                                <TextInput 
+                                    style={styles.inputs} 
+                                    placeholder="Email" 
+                                    placeholderTextColor="white" 
+                                    value={email} 
+                                    onChangeText={setEmail} />
+                                <TextInput 
+                                    style={styles.inputs} 
+                                    placeholder="Password" 
+                                    placeholderTextColor="white" 
+                                    value={password} 
+                                    onChangeText={setPassword}/> 
+                            </View>
+                            <View style={{...styles.alignCenterContainer, ...styles.marginContainer}} >
+                                <RoundedButton title="Sign In" />
+                            </View>
+                            <View style={{...styles.alignCenterContainer, ...styles.marginContainer}}>
+                                <TouchableOpacity> 
+                                    <Text style={styles .forgotPasswordText}>Forgot your login or password?</Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                        <View style={{...styles.alignCenterContainer}}>
+                            <TouchableOpacity style={{...styles.alignCenterContainer, ...styles.marginContainer, ...styles.createAccountButton}}> 
+                                <Text style={{...styles.forgotPasswordText, ...styles.createAccountText}}>Create account</Text>
+                            </TouchableOpacity>
+                            <Text style={{...styles.forgotPasswordText, ...styles.bottomContainer}}>Free for 3 months, then $12 a month</Text>
+                        </View>
+                    </View> 
+                </TouchableWithoutFeedback>
             </SafeAreaView>
         </LinearGradient>
     );
