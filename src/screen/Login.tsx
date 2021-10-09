@@ -104,7 +104,7 @@ const Login: React.FC<LoginProps> = ({ navigation }) => {
                                     onChangeText={setPassword} /> 
                             </View>
                             <View style={{...styles.alignCenterContainer, ...styles.marginContainer}} >
-                                <RoundedButton title="Sign In" />
+                                <RoundedButton title="Sign In" onPress={signIn}/>
                             </View>
                             <View style={{...styles.alignCenterContainer, ...styles.marginContainer}}>
                                 <TouchableOpacity> 

@@ -1,0 +1,33 @@
+{
+  "uid": "Hs2XGxgqzpNxvXcCtOIKYVnDJVF2",
+  "displayName": null,
+  "photoURL": null,
+  "email": "denisfeier98@gmail.com",
+  "emailVerified": false,
+  "phoneNumber": null,
+  "isAnonymous": false,
+  "tenantId": null,
+  "providerData": [
+    {
+      "uid": "denisfeier98@gmail.com",
+      "displayName": null,
+      "photoURL": null,
+      "email": "denisfeier98@gmail.com",
+      "phoneNumber": null,
+      "providerId": "password"
+    }
+  ],
+  "apiKey": "AIzaSyA5tT80vx6JOFynCvV9qiHPTQ3ssDrJZF4",
+  "appName": "[DEFAULT]",
+  "authDomain": "durable-destiny-275715.firebaseapp.com",
+  "stsTokenManager": {
+    "apiKey": "AIzaSyA5tT80vx6JOFynCvV9qiHPTQ3ssDrJZF4",
+    "refreshToken": "AFxQ4_rN-JCjr30AtjAHM_BIsEfeiz4QLrlAS9vBCHCbMze7FuqPtd_5ZajDXxkbcvxFg1zbcGSqZ8c9dOdIR8qwH0hBTt27uQO-dMh70qPSaPPLl3CLwTxuMs97LvFerBxbEfJ4lNbIenbM9_x46dJf-n1x7ss2UZb1fTqk3seb5GxBJ3bCjL0SVJVH89RAFAViKZ302y-ReR-CCcKY-OIke3O92jlhyyDre1d9bsXJx0jHqDmyYYo",
+    "accessToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImYwNTM4MmFlMTgxYWJlNjFiOTYwYjA1Yzk3ZmE0MDljNDdhNDQ0ZTciLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZHVyYWJsZS1kZXN0aW55LTI3NTcxNSIsImF1ZCI6ImR1cmFibGUtZGVzdGlueS0yNzU3MTUiLCJhdXRoX3RpbWUiOjE2MzM4MTI2OTIsInVzZXJfaWQiOiJIczJYR3hncXpwTnh2WGNDdE9JS1lWbkRKVkYyIiwic3ViIjoiSHMyWEd4Z3F6cE54dlhjQ3RPSUtZVm5ESlZGMiIsImlhdCI6MTYzMzgxMjY5MiwiZXhwIjoxNjMzODE2MjkyLCJlbWFpbCI6ImRlbmlzZmVpZXI5OEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsiZGVuaXNmZWllcjk4QGdtYWlsLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.SviS7KP5kn1kXtYRaCPaF7CgPazRH2nuCaAe1IHjwjUdliApikLidClEfhg05soEHtAMb885rTPkwwuEKaGLu2c7NVh-BfshbXUW25Bah37XQ_plGvADYQrZRRU_2-eU3i_qQqYHNkoARsqgfV8tFdMYz3z62g7pbbvfeBoM08J5v6yzqy625_r_1gn-bfM8MZUlBDFk_07PSrmLyXR2P5cV9Hycdn4hv1jARPsvL8FioHUVhYnazW_JVKnM8JWqv97eSSxV3ktvNz1I0-Zxs7x4k_orNx2usm2CcZYO42yZ92hj3RvY8WaN5LfLnZUDRD5cvJH1uOh3YsU415ZArw",
+    "expirationTime": 1633816292021
+  },
+  "redirectEventId": null,
+  "lastLoginAt": "1633812692037",
+  "createdAt": "1633548367248",
+  "multiFactor": { "enrolledFactors": [] }
+}

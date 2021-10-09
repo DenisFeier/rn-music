@@ -1,9 +1,11 @@
 import React from 'react';
+import { StatusBar } from 'expo-status-bar';
 import firebase from 'firebase/app'
 import 'firebase/firestore';
 
 import { firebaseConfig } from './config';
 import Router from './src/components/Routes'
+
 
 firebase.initializeApp(firebaseConfig);
 
@@ -27,6 +29,9 @@ export default function App() {
   // }, [])
 
   return (
-    <Router />
+    <>
+      <Router />
+      <StatusBar style="light"/>
+    </>
   );
 }
